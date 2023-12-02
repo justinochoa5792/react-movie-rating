@@ -31,7 +31,6 @@ export const ColumnDisplay = (props) => {
       toast.error("Something went wrong!");
     },
   });
-
   return (
     <Grid
       columns={3}
@@ -57,6 +56,7 @@ export const ColumnDisplay = (props) => {
                   }
                   meta={`Release Date: ${element.release_date} | Rating: ${element.vote_average}`}
                   description={element.overview.slice(0, 350) + "..."}
+                  style={{ height: "820px" }}
                 />
               </Link>
               <Form style={{ marginTop: 10 }}>

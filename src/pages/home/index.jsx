@@ -3,6 +3,7 @@ import { Button } from "semantic-ui-react";
 import { ColumnDisplay } from "./Column-Display";
 import { fetchMovies, fetchTvShows } from "./Query";
 import { useQuery } from "@tanstack/react-query";
+import { Navigate } from "react-router-dom";
 
 const Home = () => {
   const [display, setDisplay] = useState("Movies");
@@ -15,6 +16,9 @@ const Home = () => {
     queryFn: fetchTvShows,
   });
 
+  if (localStorage.getItem("guest_session_id") == null) {
+    return <Navigate to={"/auth"} />;
+  }
   return (
     <div style={{ marginTop: 80, height: "auto", textAlign: "center" }}>
       <Button.Group>
